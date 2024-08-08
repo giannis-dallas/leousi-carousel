@@ -1,0 +1,46 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "dallas-blocks/leousi-carousel",
+  "version": "0.1.0",
+  "title": "Leousi Carousel",
+  "category": "widgets",
+  "icon": "smiley",
+  "description": "Creates a carousel slider of images",
+  "attributes": {
+    "images": {
+      "type": "array",
+      "default": []
+    },
+    "autoplay": {
+      "type": "boolean",
+      "default": true
+    },
+    "navigation": {
+      "type": "boolean",
+      "default": true
+    },
+    "pagination": {
+      "type": "boolean",
+      "default": true
+    }
+  },
+  "example": {},
+  "supports": {
+    "html": false,
+    "align": true,
+    "dimensions": {
+      "aspectRatio": true,
+      "minHeight": true
+    }
+  },
+  "textdomain": "leousi-carousel",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./style-index.css",
+  "viewScript": "file:./view.js",
+  "viewStyle": [
+    "file:./view.css",
+    "example-view-style"
+  ]
+}
