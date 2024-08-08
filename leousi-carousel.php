@@ -25,6 +25,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  * @see https://developer.wordpress.org/reference/functions/register_block_type/
  */
 function dallas_blocks_leousi_carousel_block_init() {
-	register_block_type( __DIR__ . '/build' );
+	register_block_type( __DIR__ . '/build/carousel' );
+	register_block_type( __DIR__ . '/build/gallery' );
 }
 add_action( 'init', 'dallas_blocks_leousi_carousel_block_init' );
