@@ -86,7 +86,7 @@ function Edit({
       onClick: open
     }, "Open Media Library")
   })), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    className: "carousel-preview-container"
+    className: "gallery-preview-container"
   }, images.map((image, index) => (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "image-preview-container"
   }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("img", {
@@ -200,25 +200,19 @@ function save({
   });
   return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     ..._wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.useBlockProps.save(),
-    className: "swiper swiper-container"
-  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    className: "swiper-wrapper"
+    className: "photo-gallery"
   }, images.map((image, index) => (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    className: "swiper-slide",
+    className: "gallery-photo",
     key: index
   }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("a", {
     href: image.url,
     className: "glightbox",
-    "data-gallery": "gallery1"
+    "data-gallery": "gallery2"
   }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("img", {
     className: "image",
     src: image.url,
     alt: image.alt
-  }))))), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    className: "swiper-button-next"
-  }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    className: "swiper-button-prev"
-  }));
+  })))));
 }
 
 /***/ }),
@@ -303,7 +297,7 @@ module.exports = window["wp"]["i18n"];
   \********************************/
 /***/ ((module) => {
 
-module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"dallas-blocks/leousi-carousel","version":"0.1.0","title":"Leousi Carousel","category":"widgets","icon":"smiley","description":"Creates a carousel slider of images","attributes":{"images":{"type":"array","default":[]},"autoplay":{"type":"boolean","default":true},"navigation":{"type":"boolean","default":true},"pagination":{"type":"boolean","default":true}},"example":{},"supports":{"html":false,"align":true,"dimensions":{"aspectRatio":true,"minHeight":true}},"textdomain":"leousi-carousel","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","viewScript":"file:./view.js","viewStyle":["file:./view.css","example-view-style"]}');
+module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"dallas-blocks/leousi-gallery","version":"0.1.0","title":"Leousi Gallery","category":"widgets","icon":"gallery","description":"Creates a stylized gallery of images","attributes":{"images":{"type":"array","default":[]},"autoplay":{"type":"boolean","default":true},"navigation":{"type":"boolean","default":true},"pagination":{"type":"boolean","default":true}},"example":{},"supports":{"html":false,"align":true,"dimensions":{"aspectRatio":true,"minHeight":true}},"textdomain":"leousi-gallery","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","viewScript":"file:./view.js","viewStyle":["file:./view.css","example-view-style"]}');
 
 /***/ })
 

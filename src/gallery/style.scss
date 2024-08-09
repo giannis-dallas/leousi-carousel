@@ -5,42 +5,21 @@
  * Replace them with your own styles or remove the file completely.
  */
 
-.wp-block-dallas-blocks-leousi-carousel {
-	color: #242424;
-	padding: 2px;
-}
+.photo-gallery{
+	display: grid;
+	grid-template-columns: repeat(3,1fr);
+	grid-template-rows: auto;
+	gap: 20px;
 
-.swiper-container{
-
-	.swiper-slide{
-		aspect-ratio: 4/3;
+	.gallery-photo{
+		max-width: 100%;
 
 		img{
+			aspect-ratio: 1;
 			width: 100%;
 			height: 100%;
 			object-fit: cover;
 		}
-	}
-
-	.swiper-button-next, 
-	.swiper-button-prev{
-		background-color: var(--var-ast-global-color-1, crimson);
-		width: 40px;
-		height: 40px;
-		display: flex;
-		justify-content: center;
-		align-items: center;
-	}
-	.swiper-button-next{
-		right:0;
-	}
-	.swiper-button-prev{
-		left: 0;
-	}
-	.swiper-button-prev:after,
-	 .swiper-button-next:after{
-		color: #fff;
-		font-size: 20px;
 	}
 
 }

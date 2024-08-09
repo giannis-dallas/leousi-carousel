@@ -10,24 +10,24 @@
   border: 1px dotted #f00;
 }
 
-.carousel-preview-container {
+.gallery-preview-container {
   width: 100%;
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
 }
-.carousel-preview-container .image-preview-container {
+.gallery-preview-container .image-preview-container {
   width: 200px;
   height: 200px;
   position: relative;
 }
-.carousel-preview-container .image-preview-container img {
+.gallery-preview-container .image-preview-container img {
   width: 100%;
   height: 100%;
   -o-object-fit: cover;
      object-fit: cover;
 }
-.carousel-preview-container .image-preview-container button {
+.gallery-preview-container .image-preview-container button {
   position: absolute;
   bottom: 5px;
   right: 5px;

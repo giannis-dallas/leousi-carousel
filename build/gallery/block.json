@@ -1,12 +1,12 @@
 {
   "$schema": "https://schemas.wp.org/trunk/block.json",
   "apiVersion": 3,
-  "name": "dallas-blocks/leousi-carousel",
+  "name": "dallas-blocks/leousi-gallery",
   "version": "0.1.0",
-  "title": "Leousi Carousel",
+  "title": "Leousi Gallery",
   "category": "widgets",
-  "icon": "smiley",
-  "description": "Creates a carousel slider of images",
+  "icon": "gallery",
+  "description": "Creates a stylized gallery of images",
   "attributes": {
     "images": {
       "type": "array",
@@ -34,7 +34,7 @@
       "minHeight": true
     }
   },
-  "textdomain": "leousi-carousel",
+  "textdomain": "leousi-gallery",
   "editorScript": "file:./index.js",
   "editorStyle": "file:./index.css",
   "style": "file:./style-index.css",

@@ -64,7 +64,7 @@ export default function Edit({ attributes, setAttributes }) {
 					)}
 				/>
 			</MediaUploadCheck>
-			<div className="gallery-preview-container">
+			<div className="carousel-preview-container">
 			{images.map((image, index) => (
 				<div className="image-preview-container">
 					<img className="image-preview" src={image.url} alt={image.alt} />
