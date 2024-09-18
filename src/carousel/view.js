@@ -75,8 +75,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
 	console.log("test");
 
-	const lightbox = GLightbox({
-		// selector: "glightbox",
+	const lightboxCarousel = GLightbox({
+		selector: ".glightbox-carousel",
 		touchNavigation: true,
 		loop: true,
 	});

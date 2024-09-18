@@ -208,7 +208,7 @@ function save({
     key: index
   }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("a", {
     href: image.url,
-    className: "glightbox",
+    className: "glightbox-carousel",
     "data-gallery": "gallery1"
   }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("img", {
     className: "image",

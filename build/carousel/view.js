@@ -10594,8 +10594,8 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
   console.log("test");
-  const lightbox = glightbox__WEBPACK_IMPORTED_MODULE_3___default()({
-    // selector: "glightbox",
+  const lightboxCarousel = glightbox__WEBPACK_IMPORTED_MODULE_3___default()({
+    selector: ".glightbox-carousel",
     touchNavigation: true,
     loop: true
   });

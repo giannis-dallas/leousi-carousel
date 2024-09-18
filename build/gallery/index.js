@@ -206,7 +206,7 @@ function save({
     key: index
   }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("a", {
     href: image.url,
-    className: "glightbox",
+    className: "glightbox-gallery",
     "data-gallery": "gallery2"
   }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("img", {
     className: "image",

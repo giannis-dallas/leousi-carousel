@@ -25,7 +25,7 @@ export default function save({ attributes }) {
 			<div className="swiper-wrapper">
 				{images.map((image, index) => (
 					<div className="swiper-slide" key={index}>
-						<a href={image.url} className="glightbox" data-gallery="gallery1">
+						<a href={image.url} className="glightbox-carousel" data-gallery="gallery1">
 							<img className="image" src={image.url} alt={image.alt} />
 						</a>
 					</div>

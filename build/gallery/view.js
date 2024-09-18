@@ -10560,42 +10560,9 @@ console.log("Hello World! (from dallas-blocks-leousi-carousel block)");
 
 
 document.addEventListener("DOMContentLoaded", () => {
-  const swipers = document.querySelectorAll(".swiper-container");
-  swipers.forEach(swiperContainer => {
-    new swiper__WEBPACK_IMPORTED_MODULE_0__["default"](swiperContainer, {
-      modules: [swiper_modules__WEBPACK_IMPORTED_MODULE_1__.Navigation],
-      navigation: {
-        nextEl: ".swiper-button-next",
-        prevEl: ".swiper-button-prev"
-      },
-      loop: true,
-      // Default parameters
-      slidesPerView: 1,
-      spaceBetween: 0,
-      // Responsive breakpoints
-      breakpoints: {
-        // when window width is >= 320px
-        320: {
-          slidesPerView: 2
-        },
-        // when window width is >= 680px
-        680: {
-          slidesPerView: 3
-        },
-        // when window width is >= 1024px
-        1024: {
-          slidesPerView: 4
-        },
-        // when window width is >= 1400px
-        1400: {
-          slidesPerView: 5
-        }
-      }
-    });
-  });
   console.log("test");
-  const lightbox = glightbox__WEBPACK_IMPORTED_MODULE_3___default()({
-    // selector: "glightbox",
+  const lightboxGallery = glightbox__WEBPACK_IMPORTED_MODULE_3___default()({
+    selector: ".glightbox-gallery",
     touchNavigation: true,
     loop: true
   });

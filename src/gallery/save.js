@@ -24,7 +24,7 @@ export default function save({ attributes }) {
 		<div {...useBlockProps.save()} className="photo-gallery">
 			{images.map((image, index) => (
 				<div className="gallery-photo" key={index}>
-					<a href={image.url} className="glightbox" data-gallery="gallery2">
+					<a href={image.url} className="glightbox-gallery" data-gallery="gallery2">
 						<img className="image" src={image.url} alt={image.alt} />
 					</a>
 				</div>
