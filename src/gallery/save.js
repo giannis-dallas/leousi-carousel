@@ -23,9 +23,9 @@ export default function save({ attributes }) {
 	return (
 		<div {...useBlockProps.save()} className="photo-gallery">
 			{images.map((image, index) => (
-				<div className="gallery-photo" key={index}>
+				<div className={`gallery-photo ${image.className? image.className: '' }`} key={index}>
 					<a href={image.url} className="glightbox-gallery" data-gallery="gallery2">
-						<img className="image" src={image.url} alt={image.alt} />
+						<img src={image.url} alt={image.alt} className="image" />
 					</a>
 				</div>
 			))}

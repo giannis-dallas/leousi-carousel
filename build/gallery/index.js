@@ -68,11 +68,25 @@ function Edit({
       images: newImages
     });
   };
+
+  // Update image class based on user input
+  const updateImageClass = (index, newClass) => {
+    const updatedImages = [...images];
+    updatedImages[index].className = newClass;
+    setAttributes({
+      images: updatedImages
+    });
+  };
   return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     ...(0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.useBlockProps)()
   }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.MediaUploadCheck, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.MediaUpload, {
     onSelect: media => setAttributes({
-      images: media
+      images: media.map(img => ({
+        url: img.url,
+        alt: img.alt,
+        id: img.id,
+        className: '' // default class for new images
+      }))
     }),
     allowedTypes: ["image"],
     multiple: true,
@@ -87,12 +101,17 @@ function Edit({
     }, "Open Media Library")
   })), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "gallery-preview-container"
-  }, images.map((image, index) => (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", null, "Please add custom CSS classes to include in the frontend. Available: grid-column-2, grid-column-3, grid-row-2, grid-row-3"), images.map((image, index) => (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "image-preview-container"
   }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("img", {
     className: "image-preview",
     src: image.url,
     alt: image.alt
+  }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.TextControl, {
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("CSS Class", "text-domain"),
+    value: image.className,
+    onChange: newClass => updateImageClass(index, newClass),
+    placeholder: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Enter custom class", "text-domain")
   }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.Button, {
     onClick: () => removeImage(index),
     isDestructive: true
@@ -202,16 +221,16 @@ function save({
     ..._wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.useBlockProps.save(),
     className: "photo-gallery"
   }, images.map((image, index) => (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    className: "gallery-photo",
+    className: `gallery-photo ${image.className ? image.className : ''}`,
     key: index
   }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("a", {
     href: image.url,
     className: "glightbox-gallery",
     "data-gallery": "gallery2"
   }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("img", {
-    className: "image",
     src: image.url,
-    alt: image.alt
+    alt: image.alt,
+    className: "image"
   })))));
 }
 
@@ -297,7 +316,7 @@ module.exports = window["wp"]["i18n"];
   \********************************/
 /***/ ((module) => {
 
-module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"dallas-blocks/leousi-gallery","version":"0.1.0","title":"Leousi Gallery","category":"widgets","icon":"gallery","description":"Creates a stylized gallery of images","attributes":{"images":{"type":"array","default":[]},"autoplay":{"type":"boolean","default":true},"navigation":{"type":"boolean","default":true},"pagination":{"type":"boolean","default":true}},"example":{},"supports":{"html":false,"align":true,"dimensions":{"aspectRatio":true,"minHeight":true}},"textdomain":"leousi-gallery","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","viewScript":"file:./view.js","viewStyle":["file:./view.css","example-view-style"]}');
+module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"dallas-blocks/leousi-gallery","version":"0.1.0","title":"Leousi Gallery","category":"widgets","icon":"gallery","description":"Creates a stylized gallery of images","attributes":{"images":{"type":"array","default":[],"source":"query","selector":".image","query":{"url":{"source":"attribute","selector":"img","attribute":"src"},"alt":{"source":"attribute","selector":"img","attribute":"alt"},"id":{"source":"attribute","selector":"img","attribute":"data-id"},"className":{"source":"attribute","selector":"img","attribute":"class"}}}},"example":{},"supports":{"html":false,"align":true,"dimensions":{"aspectRatio":true,"minHeight":true}},"textdomain":"leousi-gallery","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","viewScript":"file:./view.js","viewStyle":["file:./view.css","example-view-style"]}');
 
 /***/ })
 

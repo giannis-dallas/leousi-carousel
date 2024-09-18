@@ -10,19 +10,31 @@
   "attributes": {
     "images": {
       "type": "array",
-      "default": []
-    },
-    "autoplay": {
-      "type": "boolean",
-      "default": true
-    },
-    "navigation": {
-      "type": "boolean",
-      "default": true
-    },
-    "pagination": {
-      "type": "boolean",
-      "default": true
+      "default": [],
+      "source": "query",
+      "selector": ".image",
+      "query": {
+        "url": {
+          "source": "attribute",
+          "selector": "img",
+          "attribute": "src"
+        },
+        "alt": {
+          "source": "attribute",
+          "selector": "img",
+          "attribute": "alt"
+        },
+        "id": {
+          "source": "attribute",
+          "selector": "img",
+          "attribute": "data-id"
+        },
+        "className": {
+          "source": "attribute",
+          "selector": "img",
+          "attribute": "class"
+        }
+      }
     }
   },
   "example": {},

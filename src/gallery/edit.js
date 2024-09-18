@@ -17,7 +17,7 @@ import {
 	MediaUploadCheck,
 } from "@wordpress/block-editor";
 
-import { Button } from "@wordpress/components";
+import { Button, TextControl } from "@wordpress/components";
 
 /**
  * Lets webpack process CSS, SASS or SCSS files referenced in JavaScript files.
@@ -47,11 +47,27 @@ export default function Edit({ attributes, setAttributes }) {
 		})
 	};
 
+	// Update image class based on user input
+    const updateImageClass = (index, newClass) => {
+        const updatedImages = [...images];
+        updatedImages[index].className = newClass;
+        setAttributes({ images: updatedImages });
+    };
+
 	return (
 		<div {...useBlockProps()}>
 			<MediaUploadCheck>
 				<MediaUpload
-					onSelect={(media) => setAttributes({ images: media })}
+					onSelect={(media) =>
+                        setAttributes({
+                            images: media.map((img) => ({
+                                url: img.url,
+                                alt: img.alt,
+                                id: img.id,
+                                className: '', // default class for new images
+                            })),
+                        })
+                    }
 					allowedTypes={["image"]}
 					multiple
 					gallery
@@ -65,9 +81,16 @@ export default function Edit({ attributes, setAttributes }) {
 				/>
 			</MediaUploadCheck>
 			<div className="gallery-preview-container">
+			<p>Please add custom CSS classes to include in the frontend. Available: grid-column-2, grid-column-3, grid-row-2, grid-row-3</p>
 			{images.map((image, index) => (
 				<div className="image-preview-container">
 					<img className="image-preview" src={image.url} alt={image.alt} />
+					<TextControl
+						label={__("CSS Class", "text-domain")}
+						value={image.className}
+						onChange={(newClass) => updateImageClass(index, newClass)}
+						placeholder={__("Enter custom class", "text-domain")}
+					/>
 					<Button onClick={() => removeImage(index)} isDestructive>
 						Remove
 					</Button>
