@@ -21,30 +21,30 @@
  */
 
 /* eslint-disable no-console */
-console.log("Hello World! (from dallas-blocks-leousi-carousel block)");
+console.log( 'Hello World! (from dallas-blocks-leousi-carousel block)' );
 
 // import Swiper packages
-import Swiper from "swiper";
-import { Navigation } from "swiper/modules";
+import Swiper from 'swiper';
+import { Navigation } from 'swiper/modules';
 
 // import swiper css bundle
-import "swiper/css/bundle";
+import 'swiper/css/bundle';
 
 // import GLightbox
 
-import GLightbox from "glightbox";
-import "glightbox/dist/css/glightbox.min.css";
+import GLightbox from 'glightbox';
+import 'glightbox/dist/css/glightbox.min.css';
 
-document.addEventListener("DOMContentLoaded", () => {
-	const swipers = document.querySelectorAll(".swiper-container");
+document.addEventListener( 'DOMContentLoaded', () => {
+	const swipers = document.querySelectorAll( '.swiper-container' );
 
-	swipers.forEach((swiperContainer) => {
-		new Swiper(swiperContainer, {
-			modules: [Navigation],
+	swipers.forEach( ( swiperContainer ) => {
+		new Swiper( swiperContainer, {
+			modules: [ Navigation ],
 
 			navigation: {
-				nextEl: ".swiper-button-next",
-				prevEl: ".swiper-button-prev",
+				nextEl: '.swiper-button-next',
+				prevEl: '.swiper-button-prev',
 			},
 			loop: true,
 
@@ -70,16 +70,14 @@ document.addEventListener("DOMContentLoaded", () => {
 					slidesPerView: 5,
 				},
 			},
-		});
-	});
+		} );
+	} );
 
-	console.log("test");
-
-	const lightboxCarousel = GLightbox({
-		selector: ".glightbox-carousel",
+	const lightboxCarousel = GLightbox( {
+		selector: '.glightbox-carousel',
 		touchNavigation: true,
 		loop: true,
-	});
-});
+	} );
+} );
 
 /* eslint-enable no-console */

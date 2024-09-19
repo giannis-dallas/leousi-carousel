@@ -3,7 +3,7 @@
  *
  * @see https://developer.wordpress.org/block-editor/reference-guides/packages/packages-i18n/
  */
-import { __ } from "@wordpress/i18n";
+import { __ } from '@wordpress/i18n';
 
 /**
  * React hook that is used to mark the block wrapper element.
@@ -15,9 +15,9 @@ import {
 	useBlockProps,
 	MediaUpload,
 	MediaUploadCheck,
-} from "@wordpress/block-editor";
+} from '@wordpress/block-editor';
 
-import { Button } from "@wordpress/components";
+import { Button } from '@wordpress/components';
 
 /**
  * Lets webpack process CSS, SASS or SCSS files referenced in JavaScript files.
@@ -25,54 +25,63 @@ import { Button } from "@wordpress/components";
  *
  * @see https://www.npmjs.com/package/@wordpress/scripts#using-css
  */
-import "./editor.scss";
-
+import './editor.scss';
 
 /**
  * The edit function describes the structure of your block in the context of the
  * editor. This represents what the editor will render when the block is used.
  *
+ * @param  root0
+ * @param  root0.attributes
+ * @param  root0.setAttributes
  * @see https://developer.wordpress.org/block-editor/reference-guides/block-api/block-edit-save/#edit
  *
  * @return {Element} Element to render.
  */
-export default function Edit({ attributes, setAttributes }) {
+export default function Edit( { attributes, setAttributes } ) {
 	const { images } = attributes;
-	console.log(images);
+	console.log( images );
 
-	const removeImage = (index) => {
-		const newImages = images.filter((img, i) => i !== index);
-		setAttributes({
-			images: newImages
-		})
+	const removeImage = ( index ) => {
+		const newImages = images.filter( ( img, i ) => i !== index );
+		setAttributes( {
+			images: newImages,
+		} );
 	};
 
 	return (
-		<div {...useBlockProps()}>
+		<div { ...useBlockProps() }>
 			<MediaUploadCheck>
 				<MediaUpload
-					onSelect={(media) => setAttributes({ images: media })}
-					allowedTypes={["image"]}
+					onSelect={ ( media ) => setAttributes( { images: media } ) }
+					allowedTypes={ [ 'image' ] }
 					multiple
 					gallery
 					addToGallery
-					value={images.map((img) => img.id)}
-					render={({ open }) => (
-						<Button variant="primary" onClick={open}>
+					value={ images.map( ( img ) => img.id ) }
+					render={ ( { open } ) => (
+						<Button variant="primary" onClick={ open }>
 							Open Media Library
 						</Button>
-					)}
+					) }
 				/>
 			</MediaUploadCheck>
 			<div className="carousel-preview-container">
-			{images.map((image, index) => (
-				<div className="image-preview-container">
-					<img className="image-preview" src={image.url} alt={image.alt} />
-					<Button onClick={() => removeImage(index)} isDestructive>
-						Remove
-					</Button>
-				</div>
-			))}
+				{ images.map( ( image, index ) => (
+					<div className="image-preview-container">
+						<img
+							className="image-preview"
+							src={ image.url }
+							alt={ image.alt }
+						/>
+						<Button
+							onClick={ () => removeImage( index ) }
+							isDestructive
+						>
+							Remove
+						</Button>
+					</div>
+				) ) }
 			</div>
 		</div>
 	);

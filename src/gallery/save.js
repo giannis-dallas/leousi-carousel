@@ -4,7 +4,7 @@
  *
  * @see https://developer.wordpress.org/block-editor/reference-guides/packages/packages-block-editor/#useblockprops
  */
-import { useBlockProps } from "@wordpress/block-editor";
+import { useBlockProps } from '@wordpress/block-editor';
 
 /**
  * The save function defines the way in which the different attributes should
@@ -16,19 +16,34 @@ import { useBlockProps } from "@wordpress/block-editor";
  * @return {Element} Element to render.
  */
 
-export default function save({ attributes }) {
+export default function save( { attributes } ) {
 	const { images } = attributes;
-	console.log({ images, attributes });
 
 	return (
-		<div {...useBlockProps.save()} className="photo-gallery">
-			{images.map((image, index) => (
-				<div className={`gallery-photo ${image.className? image.className: '' }`} key={index}>
-					<a href={image.url} className="glightbox-gallery" data-gallery="gallery2">
-						<img src={image.url} alt={image.alt} className="image" />
+		<div { ...useBlockProps.save() } className="photo-gallery">
+			{ images.map( ( image, index ) => (
+				<div
+					className={ `gallery-photo ${
+						image.className ? image.className : ''
+					}` }
+					key={ index }
+				>
+					<a
+						href={ image.url }
+						className="glightbox-gallery"
+						data-gallery="gallery2"
+					>
+						<img
+							src={ image.url }
+							alt={ image.alt }
+							className="image"
+							data-custom-class={
+								image.className ? image.className : ''
+							}
+						/>
 					</a>
 				</div>
-			))}
+			) ) }
 		</div>
 	);
 }

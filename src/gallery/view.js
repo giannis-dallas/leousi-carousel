@@ -21,30 +21,19 @@
  */
 
 /* eslint-disable no-console */
-console.log("Hello World! (from dallas-blocks-leousi-carousel block)");
-
-// import Swiper packages
-import Swiper from "swiper";
-import { Navigation } from "swiper/modules";
-
-// import swiper css bundle
-import "swiper/css/bundle";
+console.log( 'Hello World! (from dallas-blocks-leousi-carousel block)' );
 
 // import GLightbox
 
-import GLightbox from "glightbox";
-import "glightbox/dist/css/glightbox.min.css";
+import GLightbox from 'glightbox';
+import 'glightbox/dist/css/glightbox.min.css';
 
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener( 'DOMContentLoaded', () => {
 
-	console.log("test");
-
-	const lightboxGallery = GLightbox({
-		selector: ".glightbox-gallery",
+	const lightboxGallery = GLightbox( {
+		selector: '.glightbox-gallery',
 		touchNavigation: true,
 		loop: true,
-	});
+	} );
+} );
 
-});
-
-/* eslint-enable no-console */
