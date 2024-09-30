@@ -21,7 +21,6 @@
  */
 
 /* eslint-disable no-console */
-console.log( 'Hello World! (from dallas-blocks-leousi-carousel block)' );
 
 // import GLightbox
 

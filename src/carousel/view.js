@@ -21,11 +21,10 @@
  */
 
 /* eslint-disable no-console */
-console.log( 'Hello World! (from dallas-blocks-leousi-carousel block)' );
 
 // import Swiper packages
 import Swiper from 'swiper';
-import { Navigation } from 'swiper/modules';
+import { Autoplay,Navigation } from 'swiper/modules';
 
 // import swiper css bundle
 import 'swiper/css/bundle';
@@ -40,13 +39,17 @@ document.addEventListener( 'DOMContentLoaded', () => {
 
 	swipers.forEach( ( swiperContainer ) => {
 		new Swiper( swiperContainer, {
-			modules: [ Navigation ],
+			modules: [ Autoplay, Navigation ],
 
 			navigation: {
 				nextEl: '.swiper-button-next',
 				prevEl: '.swiper-button-prev',
 			},
 			loop: true,
+			autoplay: {
+				delay: 5500,
+				disableOnInteraction: true,
+			},
 
 			// Default parameters
 			slidesPerView: 1,
