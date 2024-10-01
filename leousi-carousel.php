@@ -4,7 +4,7 @@
  * Description:       Two custom blocks for the Leousi.gr website
  * Requires at least: 6.1
  * Requires PHP:      7.0
- * Version:           1.1.0
+ * Version:           1.1.2
  * Author:            Giannis Dallas
  * License:           GPL-2.0-or-later
  * Text Domain:       leousi-carousel
