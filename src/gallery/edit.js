@@ -3,7 +3,7 @@
  *
  * @see https://developer.wordpress.org/block-editor/reference-guides/packages/packages-i18n/
  */
-import { __ } from '@wordpress/i18n';
+import { __ } from "@wordpress/i18n";
 
 /**
  * React hook that is used to mark the block wrapper element.
@@ -15,9 +15,9 @@ import {
 	useBlockProps,
 	MediaUpload,
 	MediaUploadCheck,
-} from '@wordpress/block-editor';
+} from "@wordpress/block-editor";
 
-import { Button, TextControl } from '@wordpress/components';
+import { Button, TextControl } from "@wordpress/components";
 
 /**
  * Lets webpack process CSS, SASS or SCSS files referenced in JavaScript files.
@@ -25,7 +25,7 @@ import { Button, TextControl } from '@wordpress/components';
  *
  * @see https://www.npmjs.com/package/@wordpress/scripts#using-css
  */
-import './editor.scss';
+import "./editor.scss";
 
 /**
  * The edit function describes the structure of your block in the context of the
@@ -38,80 +38,86 @@ import './editor.scss';
  *
  * @return {Element} Element to render.
  */
-export default function Edit( { attributes, setAttributes } ) {
+export default function Edit({ attributes, setAttributes }) {
 	const { images } = attributes;
-	console.log( images );
+	console.log(images);
 
-	const removeImage = ( index ) => {
-		const newImages = images.filter( ( img, i ) => i !== index );
-		setAttributes( {
+	const removeImage = (index) => {
+		const newImages = images.filter((img, i) => i !== index);
+		setAttributes({
 			images: newImages,
-		} );
+		});
 	};
 
 	// Update image class based on user input
-	const updateImageClass = ( index, newClass ) => {
-		const updatedImages = [ ...images ];
-		updatedImages[ index ].className = newClass;
-		setAttributes( { images: updatedImages } );
+	const updateImageClass = (index, newClass) => {
+		const updatedImages = [...images];
+		updatedImages[index].className = newClass;
+		setAttributes({ images: updatedImages });
 	};
 
 	return (
-		<div { ...useBlockProps() }>
+		<div {...useBlockProps()}>
 			<MediaUploadCheck>
 				<MediaUpload
-					onSelect={ ( media ) =>
-						setAttributes( {
-							images: media.map( ( img ) => ( {
+					onSelect={(media) => {
+						const oldImages = [...images];
+
+						const updatedImages = media.map((img) => {
+							// Find the matching old image by ID
+							let targetImage = oldImages.find(
+								(oldImg) => oldImg.id === img.id,
+							);
+
+							// Safely check for the className in the found image
+							const newClassName =
+								targetImage && targetImage.className
+									? targetImage.className
+									: ""; // Default to an empty string if not found
+
+							return {
 								...img,
-								className: '', // default class for new images
-							} ) ),
-						} )
-					}
-					allowedTypes={ [ 'image' ] }
+								className: newClassName, // Preserve the old class if it exists
+							};
+						});
+
+						// Update the attributes with the new list of images
+						setAttributes({
+							images: updatedImages,
+						});
+					}}
+					allowedTypes={["image"]}
 					multiple
 					gallery
 					addToGallery
-					value={ images.map( ( img ) => img.id ) }
-					render={ ( { open } ) => (
-						<Button variant="primary" onClick={ open }>
+					value={images.map((img) => img.id)}
+					render={({ open }) => (
+						<Button variant="primary" onClick={open}>
 							Open Media Library
 						</Button>
-					) }
+					)}
 				/>
 			</MediaUploadCheck>
 			<div className="gallery-preview-container">
 				<p>
-					Please add custom CSS classes to include in the frontend.
-					Available: grid-column-2, grid-column-3, grid-row-2,
-					grid-row-3
+					Please add custom CSS classes to include in the frontend. Available:
+					grid-column-2, grid-column-3, grid-row-2, grid-row-3
 				</p>
-				{ images.map( ( image, index ) => (
+				{images.map((image, index) => (
 					<div className="image-preview-container">
-						<img
-							className="image-preview"
-							src={ image.url }
-							alt={ image.alt }
-						/>
+						<p>{image.className}</p>
+						<img className="image-preview" src={image.url} alt={image.alt} />
 						<TextControl
-							label={ __( 'CSS Class', 'text-domain' ) }
-							value={ image.className }
-							onChange={ ( newClass ) =>
-								updateImageClass( index, newClass )
-							}
-							placeholder={ __(
-								'Enter custom class',
-								'text-domain'
-							) }
+							label={__("CSS Class", "text-domain")}
+							value={image.className}
+							onChange={(newClass) => updateImageClass(index, newClass)}
+							placeholder={__("Enter custom class", "text-domain")}
 						/>
-						<Button
-							onClick={ () => removeImage( index ) }
-							isDestructive
-						>
+						<Button onClick={() => removeImage(index)} isDestructive>
 							Remove
 						</Button>
 					</div>
-				) ) }
+				))}
 			</div>
 		</div>
 	);
