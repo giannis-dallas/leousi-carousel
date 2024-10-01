@@ -70,7 +70,8 @@ export default function Edit( { attributes, setAttributes } ) {
 					}
 					allowedTypes={ [ 'image' ] }
 					multiple
-					gellery
+					gallery
+					addToGallery
 					value={ images.map( ( img ) => img.id ) }
 					render={ ( { open } ) => (
 						<Button variant="primary" onClick={ open }>
