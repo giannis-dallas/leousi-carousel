@@ -30,7 +30,7 @@ export default function save({ attributes }) {
 					return (
 						<div className="swiper-slide" key={index}>
 							<a
-								href={image.url}
+								href={imageSrc}
 								className="glightbox-carousel"
 								data-gallery="gallery1"
 							>
