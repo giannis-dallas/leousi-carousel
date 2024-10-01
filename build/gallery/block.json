@@ -5,7 +5,7 @@
   "version": "0.1.0",
   "title": "Leousi Gallery",
   "category": "widgets",
-  "icon": "gallery",
+  "icon": "format-gallery",
   "description": "Creates a stylized gallery of images",
   "attributes": {
     "images": {

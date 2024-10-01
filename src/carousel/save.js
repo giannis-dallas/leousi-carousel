@@ -4,7 +4,7 @@
  *
  * @see https://developer.wordpress.org/block-editor/reference-guides/packages/packages-block-editor/#useblockprops
  */
-import { useBlockProps } from '@wordpress/block-editor';
+import { useBlockProps } from "@wordpress/block-editor";
 
 /**
  * The save function defines the way in which the different attributes should
@@ -16,30 +16,31 @@ import { useBlockProps } from '@wordpress/block-editor';
  * @return {Element} Element to render.
  */
 
-export default function save( { attributes } ) {
+export default function save({ attributes }) {
 	const { images } = attributes;
-	console.log( { images, attributes } );
+	// console.log({ images, attributes });
 
 	return (
-		<div { ...useBlockProps.save() } className="swiper swiper-container">
+		<div {...useBlockProps.save()} className="swiper swiper-container">
 			<div className="swiper-wrapper">
-				{ images.map( ( image, index ) => (
-					<div className="swiper-slide" key={ index }>
-						<a
-							href={ image.url }
-							className="glightbox-carousel"
-							data-gallery="gallery1"
-						>
-							<img
-								className="image"
-								src={ image.url }
-								alt={ image.alt }
-							/>
-						</a>
-					</div>
-				) ) }
+				{images.map((image, index) => {
+					// Assign the large width if available
+					let imageSrc = image.sizes.large ? image.sizes.large.url : image.url;
+
+					return (
+						<div className="swiper-slide" key={index}>
+							<a
+								href={image.url}
+								className="glightbox-carousel"
+								data-gallery="gallery1"
+							>
+								<img className="image" src={imageSrc} alt={image.alt} />
+							</a>
+						</div>
+					);
+				})}
 			</div>
-			{ /* Add pagination, navigation, scrollbar if necessary */ }
+			{/* Add pagination, navigation, scrollbar if necessary */}
 			<div className="swiper-button-next"></div>
 			<div className="swiper-button-prev"></div>
 		</div>

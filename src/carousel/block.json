@@ -5,7 +5,7 @@
 	"version": "0.1.0",
 	"title": "Leousi Carousel",
 	"category": "widgets",
-	"icon": "mages-alt2",
+	"icon": "images-alt2",
 	"description": "Creates a carousel slider of images",
 	"attributes": {
 		"images": {
