@@ -105,7 +105,7 @@ export default function Edit({ attributes, setAttributes }) {
 				</p>
 				{images.map((image, index) => (
 					<div className="image-preview-container">
-						<img className="image-preview" src={image.url} alt={image.alt} />
+						<img className="image-preview" src={image.sizes.medium.url} alt={image.alt} />
 						<TextControl
 							label={__("CSS Class", "text-domain")}
 							value={image.className}

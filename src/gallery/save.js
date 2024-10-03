@@ -39,7 +39,7 @@ export default function save({ attributes }) {
 							data-gallery="gallery2"
 						>
 							<img
-								src={image.sizes.medium}
+								src={image.sizes.medium.url}
 								alt={image.alt}
 								className="image"
 								data-custom-class={image.className ? image.className : ""}
